@@ -1,0 +1,38 @@
+pipeline {
+  agent any
+  stages{
+      stage("1 . Checkout desde Git."){
+          steps{
+              echo '..Conectando con Github y descargando el repositorio'
+              git url: 'https://github.com/DyCodevp/wp-deploy.git', branch: 'main'
+          }
+      }
+      stage("2. docker compose down"){
+        steps{
+          echo '...Descargar cliente de docker para jenkins'
+          sh '''
+                    if [ ! -f ./docker ]; then
+                        curl -fsSL https://download.docker.com/linux/static/stable/x86_64/docker-24.0.7.tgz  | tar -xzps  --strip-components=1 docker/docker
+                    fi
+                    if [ ! -f ./docker-compose ]; then
+                        curl -fsSL -o ./docker-compose https://github.com/docker/compose/releases/download/v2.29.7/docker-compose-linux-x86_64
+                        chmod +x ./docker-compose
+            fi
+              '''
+         sh './docker-compose down'
+        }
+      }
+      stage("3. docker compose up -d"){
+          steps{
+              sh './docker-compose up -d '
+          }
+      }
+      stage("4. docker ps para verificar el despliegue."){
+          steps{
+              echo 'Validando si wordpress esta corriendo ...'
+              sh './docker ps'
+          }
+      }
+
+  }
+}
