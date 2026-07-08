@@ -4,7 +4,7 @@
 Despliega un proyecto de Wordpress utilizando Docker y Docker Compose.
 defininiendo variables de entorno para la base de datos y Wordpress.
 
-> :rocket Importante: estas variables son de prueba y deben ser reemplazadas por valores seguros en un entorno de producción.
+> :rocket: Importante: estas variables son de prueba y deben ser reemplazadas por valores seguros en un entorno de producción.
 
 
 ## Requisitos
