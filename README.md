@@ -17,6 +17,7 @@ defininiendo variables de entorno para la base de datos y Wordpress.
 2. Navegar al directorio del proyecto: `cd wp-deploy`
 3. Instalar las dependencias: `docker-compose up --build`
 4. Configurar las variables de entorno:
+
 '''sh
 WORDPRESS_DB_HOST=db
 WORDPRESS_DB_USER=wordpress
