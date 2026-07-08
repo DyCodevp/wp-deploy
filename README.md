@@ -1,5 +1,10 @@
 # Correr este proyecto
 
+## Descripción
+Despliega un proyecto de Wordpress utilizando Docker y Docker Compose.
+defininiendo variables de entorno para la base de datos y Wordpress.
+
+
 ## Requisitos
 
 - Docker
